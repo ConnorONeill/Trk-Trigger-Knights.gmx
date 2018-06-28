@@ -1,0 +1,89 @@
+id,name,type,weight
+1,Knife,Weapon,99
+2,Dagger,Weapon,14
+3,Footmans Sword,Weapon,4
+4,Rapier,Weapon,85
+5,Sabre,Weapon,55
+6,Cutlass,Weapon,55
+7,Scimitar,Weapon,11
+8,Long Sword,Weapon,30
+9,Bastard Sword,Weapon,77
+10,Great Sword,Weapon,15
+11,Light Staff,Weapon,40
+12,Blade Staff,Weapon,57
+13,Quarter Staff,Weapon,75
+14,Shod Staff,Weapon,72
+15,Hatchet,Weapon,6
+16,Hand Axe,Weapon,57
+17,Throwing Axe,Weapon,95
+18,Felling Axe,Weapon,41
+19,Large Scythe,Weapon,75
+20,War Axe,Weapon,51
+21,Great Axe,Weapon,7
+22,Horse Bow,Weapon,21
+23,Horn Bow,Weapon,56
+24,Bow,Weapon,17
+25,Long Bow,Weapon,90
+26,Recurve Bow,Weapon,19
+27,Hand Crossbow,Weapon,67
+28,Light Crossbow,Weapon,10
+29,Footmans Crossbow,Weapon,23
+30,Heavy Crossbow,Weapon,31
+31,Leather Shield,Armor,82
+32,Scale Shield,Armor,64
+33,Feathered Hat,Armor,72
+34,Chain Coif,Armor,26
+35,Iron Helm,Armor,22
+36,Circlet,Armor,15
+37,Mithril Armor,Armor,41
+38,Robe,Armor,66
+39,Ring Mail,Armor,70
+40,Magic Robe,Armor,96
+41,Chain Mail,Armor,47
+42,Iron Armor,Armor,54
+43,Fire Ring,Armor,60
+44,Ice Ring,Armor,88
+45,Warrior Bracelet,Armor,78
+46,Magician Bracelet,Armor,60
+47,Fairy Shoes,Armor,63
+48,Life Ring,Armor,94
+49,Sage's Ring,Armor,46
+50,Wood Shield,Armor,3
+51,Leather Coif,Armor,5
+52,Iron Breastplate,Armor,48
+53,Gold Breastplate,Armor,35
+54,Protect Ring,Armor,20
+55,Bronze Armor,Armor,34
+56,Bronze Shield,Armor,27
+57,Gold Coif,Armor,38
+58,Potion,Alchemy,86
+59,High Potion,Alchemy,92
+60,Full Potion,Alchemy,76
+61,Purified Water,Alchemy,30
+62,Enhanced Water,Alchemy,52
+63,Magic Water,Alchemy,40
+64,Enchanted Water,Alchemy,45
+65,Antidote,Alchemy,82
+66,Visor,Alchemy,52
+67,Awaken,Alchemy,49
+68,Dispel Herb,Alchemy,85
+69,Root,Alchemy,10
+70,Remedy,Alchemy,35
+71,Pure Remedy,Alchemy,11
+72,Holy grail,Alchemy,23
+73,Miracle,Alchemy,47
+74,Goblin toe,Other,25
+75,Red slime,Other,67
+76,Lava Rock,Other,3
+77,Element,Other,87
+78,Assassin's Knife,Other,18
+79,Ifrit Hide,Other,89
+80,Cockatrice Pelt,Other,67
+81,Green Slime,Other,37
+82,Bizzy needle,Other,73
+83,Jellyfish Poison,Other,76
+84,Dark Helm,Other,35
+85,Sand Worm Pelt,Other,10
+86,Vampire Bat Pelt,Other,63
+87,Blue Ash,Other,57
+88,Dead Flower,Other,49
