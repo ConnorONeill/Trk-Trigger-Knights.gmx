@@ -101,6 +101,8 @@
       <sprite>sprites\spr_btnViewProfile</sprite>
       <sprite>sprites\spr_btnToMain</sprite>
       <sprite>sprites\spr_btnSave</sprite>
+      <sprite>sprites\spr_btnFoward</sprite>
+      <sprite>sprites\spr_btnBack</sprite>
     </sprites>
     <sprites name="Deck Backs">
       <sprite>sprites\spr_takumaEquipBack</sprite>
@@ -274,11 +276,11 @@
       <object>objects\obj_rNode</object>
       <object>objects\obj_node</object>
     </objects>
-    <objects name="testing">
-      <object>objects\obj_testingRoomControl</object>
-    </objects>
-    <objects name="deck builder objects">
+    <objects name="deck builder">
       <object>objects\obj_deckBuilderControl</object>
+    </objects>
+    <objects name="Tests">
+      <object>objects\obj_deckBuilderTest</object>
     </objects>
     <objects name="db">
       <object>objects\obj_dbController</object>
@@ -324,6 +326,8 @@
       <object>objects\obj_btnViewProfile</object>
       <object>objects\obj_btnToMain</object>
       <object>objects\obj_btnSave</object>
+      <object>objects\obj_btnFoward</object>
+      <object>objects\obj_btnBack</object>
     </objects>
     <objects name="visual objects">
       <object>objects\obj_deckBuilderTitle</object>

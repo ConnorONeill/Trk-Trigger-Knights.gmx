@@ -25,52 +25,36 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Set the size of the pages
-pageSize = 5;
-pageStart = 0;
-pageEnd = pageSize;
-deckId = 1;
-rowSize = 7;
-
-
-unitDeckSize = 16;
-unitXSpot = 10;
-unitYSpot = 100;
-XSpot = 10;
-deckBuildX = 1000;
-
-
-//get the size of the unit db and set page number appropriatly
-var query = db_query_select("tblUnits");
-countQ = db_query_calc(query,"count","",true);
-
-//get the number of pages from how many cards in db
-pages = ceil(countQ/pageSize);
-cPage = 1;
-
-//place the objects in an array and create them
-n = 1;
-for(i = pageStart; i &lt; pageEnd; i += 1){
-    unitArray[i] = noone;
-    //if record exists create the card else create a blank also put in array
-    if(db_record_exists("tblUnits",n)){
-        name = db_record_get("tblUnits",n,"objName");
-        unitArray[i] = asset_get_index(name);
-        card = instance_create(deckBuildX+(n-1)*180,unitYSpot,unitArray[i]);
-        card.position = "deckBuilder";
-    }else{
-        unitArray[i] = obj_blank;
-        instance_create(deckBuildX+(n-1)*180,unitYSpot,unitArray[i])
-    }
-    n += 1;
+            <string>///Create the list of units
+//create 20 instances of card db to put cards into
+for(i=0;i&lt;1;i+=1){
+cardDB[i] = noone;
+cName = db_record_get("tblUnits",i,"objName");
+cardDB[i] = asset_get_index("obj_cattleDog");
 }
-
-scr_createCardsFromDeck(0);
-
+//put all the units in the array
 
 
 
+//cardDB[6] = obj_cattleDog;
 
+//create foward and back buttons
+
+
+//page variables
+pageSize = 2;
+pageStart = 0;
+pageEnd = pageSize-1;
+
+//create the decklist
+deckList = ds_list_create();
+
+//create the first page
+c=0;
+for(i=pageStart;i&lt;=pageEnd;i+=1){
+cCard = instance_create(1300+cWidth*c/2,50,cardDB[i]);
+c += 1;
+}
 </string>
           </argument>
         </arguments>
@@ -93,47 +77,59 @@ scr_createCardsFromDeck(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(mouse_check_button_pressed(mb_right)){
-    if(hoverCard != noone){
-        if(hoverCard.position == "deckIn"){
-            if(hoverCard.type == types.unit){
-                scr_deleteCardFromDeck(0);
-            }
-        }else if(hoverCard.position == "deckBuilder"){
-            if(hoverCard.type == types.unit){
-                scr_addCardToDeck(0);
-            
-            }
-        }
+            <string>///do things when mouse is clicked
+if(mouse_check_button_pressed(mb_right)){
+if(selCard != noone){
+    ds_list_add(deckList,selCard.objRef);
+    addCard = ds_list_find_value(deckList, ds_list_size(deckList)-1);
+    if(ds_list_size(deckList)&lt;3){
+    instance_create(50+cWidth/2*ds_list_size(deckList)-1,0,addCard);
+    }else{
+    instance_create(50+cWidth/2*(ds_list_size(deckList)-2),130,addCard);
     }
-    
-        
-    
+}
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_text(0,0,string(deckSpot));
+if(mouse_check_button_pressed(mb_left)){
+    bCheck = instance_position(mouse_x,mouse_y,obj_endTurn);
+    if(bCheck != noone){
+    if(cardDB[pageStart+pageSize] != noone){
+        pageStart = pageStart + pageSize;
+        pageEnd = pageEnd + pageSize;
+        c=0;
+        
+        for(i=pageStart; i&lt;=pageEnd; i+=1){
+            dCard = instance_position(1301+cWidth*c/2,50,obj_card)
+            instance_destroy(dCard);
+            if(cardDB[i] != noone){
+            instance_create(1300+cWidth*c/2,50,cardDB[i]);
+            }
+            c+=1
+            }
+        }
+        
+        }else{
+        bCheck2 = instance_position(mouse_x,mouse_y,obj_nextPhase);
+        if(bCheck2 != noone){
+        if(pageStart-pageSize &gt;= 0){
+            pageStart = pageStart - pageSize;
+            pageEnd = pageEnd - pageSize;
+            c=0
+            for(i=pageStart; i&lt;=pageEnd; i+=1){
+            
+            dCard = instance_position(1301+cWidth*c/2,50,obj_card)
+            instance_destroy(dCard);
+            if(cardDB[i] != noone){
+            instance_create(1300+cWidth*c/2,50,cardDB[i]);
+            }
+            c+=1
+            }
+        }
+        
+        }
+    
+    }
+}
 </string>
           </argument>
         </arguments>
