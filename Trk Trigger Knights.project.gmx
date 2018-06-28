@@ -323,6 +323,7 @@
       <object>objects\obj_btnDeckBuilder</object>
       <object>objects\obj_btnViewProfile</object>
       <object>objects\obj_btnToMain</object>
+      <object>objects\obj_btnSave</object>
     </objects>
     <objects name="visual objects">
       <object>objects\obj_deckBuilderTitle</object>
@@ -333,6 +334,7 @@
     <room>rooms\rm_deckBuilder</room>
     <room>rooms\rm_testingSpace</room>
     <room>rooms\rm_playLocal</room>
+    <room>rooms\rm_mainMenu</room>
     <rooms name="db example">
       <room>rooms\rm_db_nodes</room>
       <room>rooms\rm_db_inventory</room>
@@ -340,7 +342,6 @@
       <room>rooms\rm_db_scores</room>
       <room>rooms\rm_db_intro</room>
     </rooms>
-    <room>rooms\rm_mainMenu</room>
   </rooms>
   <constants number="4">
     <constant name="cWidth">180</constant>

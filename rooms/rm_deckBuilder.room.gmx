@@ -55,6 +55,7 @@
     <instance objName="obj_cursor" x="32" y="0" name="inst_358C6F32" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_deckBuilderTitle" x="1088" y="10" name="inst_5D9B14F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_btnToMain" x="1760" y="32" name="inst_4D9723F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_btnSave" x="96" y="32" name="inst_6A99E0E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
