@@ -27,10 +27,14 @@
             <kind>1</kind>
             <string>//Set the size of the pages
 pageSize = 5;
-pageStart = 0;
-pageEnd = pageSize;
-deckId = 1;
+uPageStart = 0;
+uPageEnd = pageSize;
+playerId = global.playerId;
+//get the current deck for the player
+deckId = 1
 rowSize = 7;
+
+
 
 
 unitDeckSize = 16;
@@ -48,12 +52,13 @@ countQ = db_query_calc(query,"count","",true);
 uPages = ceil(countQ/pageSize);
 uPage = 1;
 
+
 //place the objects in an array and create them
 n = 1;
-for(i = pageStart; i &lt; pageEnd; i += 1){
+for(i = uPageStart; i &lt; uPageEnd; i += 1){
     unitArray[i] = noone;
     //if record exists create the card else create a blank also put in array
-    if(db_record_exists("tblUnits",n)){
+    if(db_record_exists("tblUnits",i+1)){
         name = db_record_get("tblUnits",n,"objName");
         unitArray[i] = asset_get_index(name);
         card = instance_create(deckBuildX+(n-1)*180,unitYSpot,unitArray[i]);
@@ -68,8 +73,9 @@ for(i = pageStart; i &lt; pageEnd; i += 1){
 scr_createCardsFromDeck(0);
 //create the buttons
 btnFoward = instance_create(1820,150,obj_btnFoward);
+btnFoward.type = types.unit;
 btnBack = instance_create(860,150,obj_btnBack);
-
+btnFoward.type = types.unit;
 
 
 </string>
@@ -108,12 +114,24 @@ btnBack = instance_create(860,150,obj_btnBack);
         }
     }   
 }
+if(mouse_check_button_pressed(mb_left)){
+    check = instance_position(mouse_x, mouse_y,obj_btnFoward);
+    if(check != noone){
+    scr_fowardPage(types.unit);
+        
+    
+    }
+
+
+}
 
 
 
 </string>
+          </argument>
         </arguments>
       </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>

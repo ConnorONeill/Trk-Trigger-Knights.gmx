@@ -137,6 +137,9 @@ bDeck[i].handY = 0;
 
 //give all red decks cards to use for testing
 for(i=0; i&lt;3; i+=1){
+db_query_select_ids("tblUnitsInDeck");
+db_cl_where(query,db_op_eq,"deckId",deckId);
+
 ds_list_add(rDeck[i].deckList, obj_sabreTooth, obj_druidKing, obj_druidSummoner);
 ds_list_shuffle(rDeck[i].deckList);
 }

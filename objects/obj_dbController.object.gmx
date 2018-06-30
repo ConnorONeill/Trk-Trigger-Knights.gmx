@@ -29,7 +29,7 @@
 db_init();
 
 //create a database or open if exists
-db_open("card_database");
+db_open("test_database");
 
 //add tables if don't exist (add spell and equip decks here)
 if(!db_table_exists("tblUnits")) {
@@ -38,13 +38,23 @@ if(!db_table_exists("tblUnits")) {
 if(!db_table_exists("tblUnitsInDeck")) {
     db_table_create("tblUnitsInDeck", "cardId:real", "deckId:real", "quantity:real");
 }
-if(!db_table_exists("tblDeck")) {
-    db_table_create("tblDeck", "name:string");
+//add spell and equip tables here
+
+if(!db_table_exists("tblDecks")) {
+    db_table_create("tblDecks", "name:string", "playerId:string");
+}
+if(!db_table_exists("tblPlayers")){
+    db_table_create("tblPlayers","name:string", "password:string","deckId:string","aiDeckId:string");
 }
 
 //import the data from the csv file
-//db_table_import_csv("tblUnits","tblUnits.csv",",");
+db_table_import_csv("tblUnits","tblUnits.csv",",");
+//db_table_import_csv("tblPlayers","tblPlayers.csv",",");
+//db_table_import_csv("tblDecks","tblDecks.csv",",");
 //db_table_import_csv("tblUnitsInDeck","tblUnitsInDeck.csv",",");
+
+//set the default player, later on chose the player by log in method
+global.playerId = 1;
 
 
 

@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="4" name="datafiles">
+  <datafiles number="6" name="datafiles">
     <datafile>
       <name>items.csv</name>
       <exists>-1</exists>
@@ -56,9 +56,9 @@
       <filename>tblUnitsInDeck.csv</filename>
     </datafile>
     <datafile>
-      <name>tblUnitsDeck.csv</name>
+      <name>tblPlayers.csv</name>
       <exists>-1</exists>
-      <size>9</size>
+      <size>373</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -70,7 +70,24 @@
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
-      <filename>tblUnitsDeck.csv</filename>
+      <filename>tblPlayers.csv</filename>
+    </datafile>
+    <datafile>
+      <name>tblDecks.csv</name>
+      <exists>-1</exists>
+      <size>373</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>tblDecks.csv</filename>
     </datafile>
   </datafiles>
   <NewExtensions>
@@ -89,6 +106,8 @@
       <sprite>sprites\spr_druidKing</sprite>
       <sprite>sprites\spr_druidSummoner</sprite>
       <sprite>sprites\spr_sabreTooth</sprite>
+      <sprite>sprites\spr_huntingWolf</sprite>
+      <sprite>sprites\spr_mammoth</sprite>
     </sprites>
     <sprites name="Button Sprites">
       <sprite>sprites\spr_btnNextPhase</sprite>
@@ -237,6 +256,7 @@
       <script>scripts\scr_cardToDeckBuild.gml</script>
       <script>scripts\scr_deleteCardFromDeck.gml</script>
       <script>scripts\scr_saveDeck.gml</script>
+      <script>scripts\scr_fowardPage.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -270,6 +290,8 @@
       <object>objects\obj_druidKing</object>
       <object>objects\obj_druidSummoner</object>
       <object>objects\obj_cattleDog</object>
+      <object>objects\obj_huntingWolf</object>
+      <object>objects\obj_mammoth</object>
     </objects>
     <objects name="nodes">
       <object>objects\obj_bNode</object>
