@@ -2,7 +2,7 @@
 //chosen card instance
 var card = argument0;
 //put it to the bottom of its origin deckList
-ds_list_add(card.deck.deckList,card.objRef);
+ds_list_add(card.deck.deckList, card.objRef);
 //if the card is in the hand
 if (card.position = "hand"){
     //get rid of the card that was in the hand

@@ -69,6 +69,9 @@ rPlayer.colour = "red";
 bPlayer = instance_create(0,0, obj_player);
 bPlayer.colour = "blue";
 
+//get the deck id (change to player deck id)
+deckId = 1;
+
 
 
 //start game
@@ -104,6 +107,8 @@ rDeck[0] = noone;
 rDeck[1] = noone;
 rDeck[2] = noone;
 
+//create an instance of a object, equip and spell deck for both colours
+//place them in seperate arrays
 for(i=0;i&lt;3;i=i+1){
 if(i=0){
 rDeck[i] = instance_create(cWidth*(fWidth+i),cHeight*(fHeight-1),obj_unitDeck)
@@ -137,10 +142,23 @@ bDeck[i].handY = 0;
 
 //give all red decks cards to use for testing
 for(i=0; i&lt;3; i+=1){
-db_query_select_ids("tblUnitsInDeck");
+//get all cards in the current deck
+query = db_query_select_ids("tblUnitsInDeck");
 db_cl_where(query,db_op_eq,"deckId",deckId);
+idList = db_query_exec(query);
+count = 0;
+    for(a=0; a&lt;ds_list_size(idList); a+=1){
+        cardInId = ds_list_find_value(idList,a);
+        cardId = db_record_get("tblUnitsInDeck",cardInId,"cardId");
+        cardQuan = db_record_get("tblUnitsInDeck",cardInId,"quantity");
+        cardIndex = asset_get_index(db_record_get("tblUnits",cardId,"objName"));
+        for(b=0; b&lt;cardQuan; b += 1){
+            ds_list_add(rDeck[i].deckList,cardIndex);       
+        }
+        
+    }
 
-ds_list_add(rDeck[i].deckList, obj_sabreTooth, obj_druidKing, obj_druidSummoner);
+//ds_list_add(rDeck[i].deckList, obj_sabreTooth, obj_druidKing, obj_druidSummoner);
 ds_list_shuffle(rDeck[i].deckList);
 }
 
@@ -244,15 +262,12 @@ if (global.turn = turns.rTurn){
 switch(global.phase){
     case phases.draw: {
         scr_drawPhase(rDeck);
-        break;
     }
     case phases.income: {
         scr_incomePhase(rPlayer);
-        break;
     }
     case phases.main:{
         scr_mainPhase(rPlayer);
-        break;
     }
     case phases.battle: {
         scr_battlePhase(rPlayer);
